@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributors</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes flash {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .animate-flash {
+            animation: flash 1s infinite;
+        }
+        .navbar {
+            background-color: #4a5568;
+            padding: 1rem;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s;
+            margin: 0 0.5rem;
+        }
+        .navbar a:hover {
+            background-color: #2d3748;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .contributor {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .contributor img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        .contributor-details {
+            flex: 1;
+        }
+        .contributor-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .contributor-role {
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="contributors.html">Contributors</a>
+        <!-- Add other navbar links here if needed -->
+    </div>
+    <div class="container mx-auto">
+        <h1 class="text-4xl text-center mb-8">Contributors</h1>
+        <div class="contributor">
+            <img src="path_to_profile_picture.jpg" alt="Profile Picture">
+            <div class="contributor-details">
+                <div class="contributor-name">John Doe</div>
+                <div class="contributor-role">Web Developer</div>
+                <div class="contributor-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            </div>
+        </div>
+        <div class="contributor">
+            <img src="path_to_profile_picture.jpg" alt="Profile Picture">
+            <div class="contributor-details">
+                <div class="contributor-name">Jane Smith</div>
+                <div class="contributor-role">Graphic Designer</div>
+                <div class="contributor-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            </div>
+        </div>
+        <!-- Add more contributors as needed -->
+    </div>
+</body>
+</html>
