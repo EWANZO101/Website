@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes flash {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .animate-flash {
+            animation: flash 1s infinite;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #4a5568; /* You can change the color as needed */
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #2d3748; /* You can change the hover color as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <a href="https://discord.gg/p7VT5ZBPTx">Discord</a>
+            <a href="mailto:swiftpeakhosting@outlook.com">Email</a>
+        </div>
+    </div>
+</body>
+</html>
