@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unable to Integrate</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes flash {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .animate-flash {
+            animation: flash 1s infinite;
+        }
+        .navbar {
+            background-color: #4a5568;
+            padding: 1rem;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s;
+            margin: 0 0.5rem;
+        }
+        .navbar a:hover {
+            background-color: #2d3748;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .framework {
+            background-color: #edf2f7;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .framework h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        .framework p {
+            color: #4a5568;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="container">
+        <div class="framework">
+            <h2>Future Frameworks</h2>
+            <p>Unfortunately, there are some frameworks that we won't be able to support/add in the future:</p>
+            <ul>
+                <li>BOII | DEVELOPMENT framework</li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <div class="framework">
+            <h2>Stay Updated</h2>
+            <p>Make sure to keep an eye on our updates as we continue to evolve our platform!</p>
+        </div>
+    </div>
+</body>
+
+</html>
