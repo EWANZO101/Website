@@ -14,10 +14,32 @@
         .animate-flash {
             animation: flash 1s infinite;
         }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #4a5568; /* You can change the color as needed */
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #2d3748; /* You can change the hover color as needed */
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <div class="container mx-auto px-4 py-8">
+        <div class="navbar">
+            <a href="index.html">Go Home</a>
+            <!-- Add other navigation links here if needed -->
+        </div>
         <div class="text-center mb-8">
             <h1 class="text-4xl text-red-600 animate-flash">Coming Soon</h1>
             <p class="text-lg">Stay Tuned for Exciting Updates!</p>

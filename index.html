@@ -14,6 +14,17 @@
         .animate-flash {
             animation: flash 1s infinite;
         }
+        .center-nav {
+            display: flex;
+            justify-content: center;
+        }
+        .center-nav ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style-type: none;
+            padding: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -23,25 +34,25 @@
         </div>
         <h1 class="text-4xl text-center mb-8"> Swift Peak Hosting Dev</h1>
         <h2 class="text-2xl mb-4">List of Repositories:</h2>
-        <ul class="space-y-4">
-            <li>
-                <a href="https://github.com/Swift-peak-hosting-dev/Swift-Development-Integrations-v3/tree/main/Bryan-Snaily-CAD-Integration-main/bryan_snaily" class="block bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                    Bryan-Snaily-CAD-Integration
-                </a>
-            </li>
-            
-            <li>
-                <a href="comingsoon.html" class="block bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                    burnout-QB radio-Integration (Coming Soon, Stay Tuned)
-                </a>
-            </li>
-            <li>
-                <a href="comingsoon.html" class="block bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                    kristian770-FivePD Integration (Coming Soon, Stay Tuned)
-                </a>
-            </li>
-            
-        </ul>
+        <nav class="center-nav">
+            <ul>
+                <li>
+                    <a href="https://github.com/Swift-peak-hosting-dev/Swift-Development-Integrations-v3/tree/main/Bryan-Snaily-CAD-Integration-main/bryan_snaily" class="block bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
+                        Bryan-Snaily-CAD-Integration
+                    </a>
+                </li>
+                <li>
+                    <a href="comingsoon.html" class="block bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
+                        burnout-QB radio-Integration (Coming Soon, Stay Tuned)
+                    </a>
+                </li>
+                <li>
+                    <a href="comingsoon.html" class="block bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
+                        kristian770-FivePD Integration (Coming Soon, Stay Tuned)
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </body>
 </html>
