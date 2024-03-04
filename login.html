@@ -41,16 +41,35 @@
 </div>
 
 <script>
+    // Function to fetch user data from admin.html
+    function getUserData() {
+        // Extract user data from admin.html
+        const userData = [];
+        const userList = document.getElementById('userList');
+        const userItems = userList.getElementsByTagName('li');
+        for (let i = 0; i < userItems.length; i++) {
+            const username = userItems[i].textContent.trim();
+            userData.push({ username: username });
+        }
+        return userData;
+    }
+
+    // Function to authenticate user
     function login(event) {
         event.preventDefault(); // Prevent form submission
         
-        // Perform login validation (dummy check)
-        const username = document.getElementById('loginUsername').value;
-        const password = document.getElementById('loginPassword').value;
+        // Get user data from admin.html
+        const users = getUserData();
 
-        // Check if username and password match
-        if (username === 'admin' && password === 'password') {
-            // Redirect to admin page upon successful login
+        // Get entered username and password
+        const username = document.getElementById('loginUsername').value.trim();
+        const password = document.getElementById('loginPassword').value.trim();
+
+        // Check if username and password match any user in the list
+        const authenticatedUser = users.find(user => user.username === username && user.password === password);
+
+        // Redirect to admin page upon successful login
+        if (authenticatedUser) {
             window.location.href = 'admin.html';
         } else {
             alert('Invalid username or password. Please try again.'); // Display error message
