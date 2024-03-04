@@ -39,4 +39,25 @@
     // Function to display users
     function displayUsers() {
         const userList = document.getElementById('userList');
-        userList
+        userList.innerHTML = ''; // Clear previous content
+        users.forEach(user => {
+            const li = document.createElement('li');
+            li.textContent = user.username;
+            userList.appendChild(li);
+        });
+    }
+
+    // Function to delete user
+    function deleteUser(event) {
+        event.preventDefault(); // Prevent form submission
+        const usernameToDelete = document.getElementById('deleteUserUsername').value;
+        users = users.filter(user => user.username !== usernameToDelete);
+        displayUsers();
+    }
+
+    // Initial display of users
+    displayUsers();
+</script>
+
+</body>
+</html>
