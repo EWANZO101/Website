@@ -71,8 +71,8 @@
             var password = document.getElementById('password').value;
 
             try {
-                // Fetch login info from JSON file
-                const response = await fetch('file:///H:/Website/login.json');
+                // Fetch login info from JSON file hosted on GitHub
+                const response = await fetch('https://raw.githubusercontent.com/EWANZO101/Website/main/login.json');
                 const data = await response.json();
 
                 // Check if the username and password match
