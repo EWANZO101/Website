@@ -1,111 +1,15 @@
+<?php include 'db.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swift Peak Hosting Dev</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        @keyframes flash {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        .animate-flash {
-            animation: flash 1s infinite;
-        }
-        .navbar {
-            background-color: #4a5568;
-            padding: 1rem;
-            text-align: center;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
-            transition: background-color 0.3s;
-            margin: 0 0.5rem;
-        }
-        .navbar a:hover {
-            background-color: #2d3748;
-        }
-    </style>
+    <title>Login</title>
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <!-- Tailwind UI Components CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/@tailwindui/login@0.6.2/dist/style.css" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-white font-sans">
-    <div class="navbar">
-        <a href="unable-to-integrate.html">unable-to-integrate</a>
-        <a href="Contact.html">Contact US</a>
-        <a href="login.html">login</a>
-        <a href="signup.html">signup</a>
-        <a href="About.html">About</a>
-        <!-- Add other navbar links here if needed -->
-    </div>
-    <div class="container mx-auto px-4 py-8">
-        <div class="text-center mb-8">
-            <h3 class="text-4xl text-red-600 animate-flash">Under Development</h3>
-        </div>
-        <h1 class="text-4xl text-center mb-8">Swift Peak Hosting Dev</h1>
-        <h2 class="text-2xl mb-4">Latest of Repositories:</h2>
-        <nav>
-            <ul>
-                <li>
-                    <a href="https://github.com/Swift-peak-hosting-dev/Swift-Development-Integrations-v3/tree/main/Bryan-Snaily-CAD-Integration-main/bryan_snaily" class="block bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                        Bryan-Snaily-CAD-Integration
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/Swift-peak-hosting-dev/qb-radio" class="block bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                        burnout Qb radio modified 
-                    </a>
-                </li>
-                <li>
-                    <a href="comingsoon.html" class="block bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                       
-                    </a>
-                </li>
-                <li>
-                    <a href="comingsoon.html" class="block bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                        kristian770-FivePD Integration (Coming Soon, Stay Tuned)
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        
-        <div class="bg-gray-800 text-white p-6 rounded-md mb-8">
-            <p class="mb-4">Passionate developers and designers with a primary focus on providing quality resources. Our resources are open source and entirely free for all of the FiveM community to enjoy and use.</p>
-            <h3 class="text-xl font-semibold mb-2">Now it's SUPER easy to contribute!</h3>
-            <p class="mb-4">All you need to do is head over to our <a href="https://discord.gg/Wh7U5uuwC3" class="text-blue-300 underline">Discord community</a> or create an issue or a pull request on Github. Just read through the contribution rules <strong>thoroughly</strong> and create an issue and a pull request to our scripts. Please create <strong>well-written</strong> and <strong>detailed</strong> issues/pull requests; then just hit the big green submit button and <strong>BOOM</strong>! You are done. It's never been so easy!</p>
-            <p>Now remember, we aren't automated robots, so reviewing these issues and pull requests will take some time. Please be patient with us. We look forward to seeing all of your issues and pull requests. Best of luck to all of you.</p>
-        </div>
-        
-        <h2 class="text-2xl mb-4">Our scripts</h2>
-        <div class="grid grid-cols-2 gap-4">
-            <div class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                <a href="https://github.com/Swift-peak-hosting-dev/Swift-Development-Integrations-v3/tree/main/Bryan-Snaily-CAD-Integration-main">Bryan Snaily CAD Integration for QB Core or ESX</a>
-            </div>
-            <div class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                <a href="https://github.com/Swift-peak-hosting-dev/Swift-Development-Integrations-v3/tree/main/Swift%20Peak%20file%20Selector">Swift Peak file Selector</a>
-            </div>
-            <div class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                <a href="https://github.com/Swift-peak-hosting-dev/unscalable-YT-SCRIPTS/tree/main/QB-Disable-Radio-main">QB-Disable-Radio</a>
-            </div>
-            <div class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                <a href="https://github.com/Swift-peak-hosting-dev/unscalable-YT-SCRIPTS/tree/main/uj-AImedic-main">uj-AImedic</a>
-            </div>
-            <div class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                <a href="https://github.com/Swift-peak-hosting-dev/unscalable-YT-SCRIPTS/tree/main/uj-qbfood-main">uj-qbfood</a>
-            </div>
-            <div class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
-                <a href="https://github.com/Swift-peak-hosting-dev/unscalable-YT-SCRIPTS/tree/main/uj-radialmenu-main">uj-radialmenu</a>
-            </div>
-        </div>
-    </div>
-    <div align="center">
-        <a href="https://swift-peak-hosting-dev.gitbook.io/swift-peak-hosting-dev-docs/">Documentation</a>
-        &nbsp;
-        <a href="https://discord.gg/jznac5xzqP">Discord</a>
-    </div>
+<body class="bg-gray-100">
+    <!-- Login Form HTML goes here -->
 </body>
 </html>
