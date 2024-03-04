@@ -4,143 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        /* Admin panel layout styles */
-        .admin-panel {
-            display: flex;
-            height: 100vh;
-        }
-
-        .sidebar {
-            width: 250px;
-            background-color: #1a202c;
-            color: #fff;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 20px;
-        }
-
-        .tab {
-            display: none;
-        }
-
-        .tab.active {
-            display: block;
-        }
-
-        /* Side navigation styles */
-        .nav-link {
-            padding: 10px;
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            background-color: #2d3748;
-        }
-
-        /* New User styles */
-        .new-user-form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 0.5rem;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .new-user-form label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .new-user-form input[type="text"],
-        .new-user-form input[type="password"],
-        .new-user-form select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 0.25rem;
-            border: 1px solid #ddd;
-        }
-
-        .new-user-form button {
-            margin-top: 10px;
-            background-color: #4299e1;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 0.25rem;
-            cursor: pointer;
-        }
+        /* Additional custom styling here */
     </style>
 </head>
-<body class="bg-gray-100">
-    <div class="admin-panel">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <nav class="mt-10">
-                <a href="#newUserTab" class="nav-link">New User</a>
-            </nav>
-        </div>
+<body class="bg-gray-800 text-white">
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Tab Content -->
-            <div id="newUserTab" class="tab active">
-                <h2 class="text-2xl font-bold mb-4">New User</h2>
-                <!-- New user form goes here -->
-                <form class="new-user-form" id="newUserForm">
-                    <div class="mb-4">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" placeholder="Enter username" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" placeholder="Enter password" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="rank">Rank:</label>
-                        <input type="number" id="rank" placeholder="Enter rank" required>
-                    </div>
-                    <button type="submit">Create User</button>
-                </form>
-            </div>
-        </div>
+<div class="container mx-auto">
+    <!-- Admin Panel -->
+    <div>
+        <h1 class="text-2xl font-bold mb-4">Admin Panel</h1>
+        <!-- List of Users -->
+        <ul id="userList" class="mb-4">
+            <!-- User items will be added here dynamically -->
+        </ul>
+        <!-- Delete User Form -->
+        <form id="deleteUserForm" class="mb-4" onsubmit="deleteUser(event)">
+            <label for="deleteUserUsername" class="block">Username of User to Delete:</label>
+            <input type="text" id="deleteUserUsername" class="form-input">
+            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mt-2">Delete User</button>
+        </form>
     </div>
+</div>
 
-    <script>
-        // Predefined users
-        const predefinedUsers = [
-            { username: "admin", password: "admin123", rank: 1 },
-            // Add more predefined users here if needed
-        ];
+<script>
+    // Simulated user data
+    let users = [
+        { username: 'john', password: 'password123' },
+        { username: 'jane', password: 'securepass' },
+        // Add more users as needed
+    ];
 
-        // Function to create a new user
-        document.getElementById('newUserForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-            
-            // Get input values
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const rank = document.getElementById('rank').value;
-
-            // Create a new user object
-            const newUser = {
-                username: username,
-                password: password,
-                rank: rank
-            };
-
-            // Add the new user to the predefined users array
-            predefinedUsers.push(newUser);
-
-            // Output the predefined users array to the console (for demonstration purposes)
-            console.log(predefinedUsers);
-        });
-    </script>
-</body>
-</html>
+    // Function to display users
+    function displayUsers() {
+        const userList = document.getElementById('userList');
+        userList
