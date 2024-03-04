@@ -63,19 +63,20 @@
             margin-bottom: 5px;
         }
 
-        /* Form styles */
-        .form-group {
+        /* Settings styles */
+        .setting {
             margin-bottom: 20px;
         }
 
-        .form-group label {
+        .setting label {
             font-weight: bold;
             display: block;
             margin-bottom: 5px;
         }
 
-        .form-group input[type="text"],
-        .form-group select {
+        .setting input[type="text"],
+        .setting input[type="number"],
+        .setting select {
             width: 100%;
             padding: 10px;
             border-radius: 0.25rem;
@@ -89,7 +90,7 @@
         <div class="sidebar">
             <nav class="mt-10">
                 <a href="#usersInfoTab" class="nav-link">Users Info</a>
-                <!-- Add more navigation links as needed -->
+                <a href="#settingsTab" class="nav-link">Settings</a>
             </nav>
         </div>
 
@@ -99,53 +100,115 @@
             <div id="usersInfoTab" class="tab active">
                 <h2 class="text-2xl font-bold mb-4">Users Information</h2>
                 <!-- Users information content goes here -->
-                <div class="user-card">
-                    <h3>User 1</h3>
-                    <p>Email: user1@example.com</p>
-                    <p>Role: Administrator</p>
-                    <p>Rank: 5</p>
-                    <div class="form-group">
-                        <label for="roleSelect">Change Role:</label>
-                        <select id="roleSelect">
-                            <option value="admin">Administrator</option>
-                            <option value="moderator">Moderator</option>
-                            <option value="user">User</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="rankInput">Change Rank:</label>
-                        <input type="text" id="rankInput" placeholder="Enter new rank">
-                    </div>
-                    <button onclick="updateUserInfo(1)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update</button>
+                <div id="usersInfo"></div>
+            </div>
+            <div id="settingsTab" class="tab">
+                <h2 class="text-2xl font-bold mb-4">Settings</h2>
+                <!-- Settings content goes here -->
+                <div class="setting">
+                    <label for="setting1">Setting 1:</label>
+                    <input type="text" id="setting1" placeholder="Enter value">
                 </div>
-                <div class="user-card">
-                    <h3>User 2</h3>
-                    <p>Email: user2@example.com</p>
-                    <p>Role: Moderator</p>
-                    <p>Rank: 3</p>
-                    <div class="form-group">
-                        <label for="roleSelect2">Change Role:</label>
-                        <select id="roleSelect2">
-                            <option value="admin">Administrator</option>
-                            <option value="moderator">Moderator</option>
-                            <option value="user">User</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="rankInput2">Change Rank:</label>
-                        <input type="text" id="rankInput2" placeholder="Enter new rank">
-                    </div>
-                    <button onclick="updateUserInfo(2)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update</button>
+                <div class="setting">
+                    <label for="setting2">Setting 2:</label>
+                    <input type="text" id="setting2" placeholder="Enter value">
                 </div>
-                <!-- Add more user cards with user information as needed -->
+                <div class="setting">
+                    <label for="setting3">Setting 3:</label>
+                    <input type="text" id="setting3" placeholder="Enter value">
+                </div>
+                <div class="setting">
+                    <label for="setting4">Setting 4:</label>
+                    <input type="text" id="setting4" placeholder="Enter value">
+                </div>
+                <div class="setting">
+                    <label for="setting5">Setting 5:</label>
+                    <input type="text" id="setting5" placeholder="Enter value">
+                </div>
+                <div class="setting">
+                    <label for="setting6">Setting 6:</label>
+                    <input type="text" id="setting6" placeholder="Enter value">
+                </div>
+                <div class="setting">
+                    <label for="setting7">Setting 7:</label>
+                    <input type="text" id="setting7" placeholder="Enter value">
+                </div>
+                <div class="setting">
+                    <label for="setting8">Setting 8:</label>
+                    <input type="text" id="setting8" placeholder="Enter value">
+                </div>
+                <div class="setting">
+                    <label for="setting9">Setting 9:</label>
+                    <input type="text" id="setting9" placeholder="Enter value">
+                </div>
+                <div class="setting">
+                    <label for="setting10">Setting 10:</label>
+                    <input type="text" id="setting10" placeholder="Enter value">
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Function to fetch user data from login.json
+        async function fetchUsersData() {
+            try {
+                const response = await fetch('login.json');
+                const data = await response.json();
+                const users = data.users;
+                const usersInfo = document.getElementById('usersInfo');
+
+                users.forEach(user => {
+                    const userCard = document.createElement('div');
+                    userCard.classList.add('user-card');
+
+                    const username = document.createElement('h3');
+                    username.textContent = user.username;
+
+                    const email = document.createElement('p');
+                    email.textContent = `Email: ${user.email}`;
+
+                    const role = document.createElement('p');
+                    role.textContent = `Role: ${user.role}`;
+
+                    const rank = document.createElement('p');
+                    rank.textContent = `Rank: ${user.rank}`;
+
+                    const roleSelect = document.createElement('select');
+                    roleSelect.innerHTML = `
+                        <option value="admin">Administrator</option>
+                        <option value="moderator">Moderator</option>
+                        <option value="user">User</option>
+                    `;
+
+                    const rankInput = document.createElement('input');
+                    rankInput.type = 'text';
+                    rankInput.placeholder = 'Enter new rank';
+
+                    const updateButton = document.createElement('button');
+                    updateButton.textContent = 'Update';
+                    updateButton.classList.add('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded', 'focus:outline-none', 'focus:shadow-outline');
+                    updateButton.onclick = () => updateUserInfo(user.id);
+
+                    userCard.appendChild(username);
+                    userCard.appendChild(email);
+                    userCard.appendChild(role);
+                    userCard.appendChild(rank);
+                    userCard.appendChild(roleSelect);
+                    userCard.appendChild(rankInput);
+                    userCard.appendChild(updateButton);
+
+                    usersInfo.appendChild(userCard);
+                });
+            } catch (error) {
+                console.error('Error fetching users data:', error);
+            }
+        }
+
+        // Function to update user information
         function updateUserInfo(userId) {
-            const roleSelect = document.getElementById(`roleSelect${userId}`);
-            const rankInput = document.getElementById(`rankInput${userId}`);
+            const roleSelect = document.querySelector(`#usersInfo #user-${userId} select`);
+            const rankInput = document.querySelector(`#usersInfo #user-${userId} input[type="text"]`);
 
             const newRole = roleSelect.value;
             const newRank = rankInput.value;
@@ -153,6 +216,9 @@
             // Here you can implement code to update the user information in the login.json file
             console.log(`Updating user ${userId} with new role: ${newRole} and new rank: ${newRank}`);
         }
+
+        // Fetch user data when the page loads
+        fetchUsersData();
     </script>
 </body>
 </html>
