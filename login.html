@@ -47,7 +47,7 @@
                 if (!data || !data.content) {
                     throw new Error('Login data not available');
                 }
-                
+
                 const users = JSON.parse(atob(data.content));
                 if (!Array.isArray(users)) {
                     throw new Error('Invalid login data format');
@@ -63,15 +63,15 @@
                 }
             } catch (error) {
                 console.error('Error:', error);
+                let errorMessage = 'An error occurred. Please try again later.';
                 if (error.message === 'Failed to fetch login data') {
-                    document.getElementById('message').textContent = 'Failed to fetch login data. Please try again later.';
+                    errorMessage = 'Failed to fetch login data. Please try again later.';
                 } else if (error.message === 'Login data not available') {
-                    document.getElementById('message').textContent = 'Login data not available. Please contact support.';
+                    errorMessage = 'Login data not available. Please try again later.';
                 } else if (error.message === 'Invalid login data format') {
-                    document.getElementById('message').textContent = 'Invalid login data format. Please contact support.';
-                } else {
-                    document.getElementById('message').textContent = 'An unexpected error occurred. Please try again later.';
+                    errorMessage = 'Invalid login data format. Please contact support.';
                 }
+                document.getElementById('message').textContent = errorMessage;
             }
         });
     </script>
