@@ -32,7 +32,7 @@
             const password = document.getElementById('password').value;
 
             try {
-                const response = await fetch('https://github.com/EWANZO101/json/blob/main/logins.json', {
+                const response = await fetch('https://api.github.com/repos/EWANZO101/json/contents/logins.json', {
                     headers: {
                         Accept: 'application/vnd.github.v3.raw',
                         Authorization: `Bearer ${token}` // Use the token retrieved from the secure location
@@ -40,11 +40,21 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error('Failed to fetch login data');
+                    throw new Error(`Failed to fetch login data. Status: ${response.status}`);
                 }
 
                 const data = await response.json();
+
+                if (!data || !data.content) {
+                    throw new Error('Login data not available');
+                }
+
                 const users = JSON.parse(atob(data.content));
+
+                if (!users || !Array.isArray(users)) {
+                    throw new Error('Invalid login data format');
+                }
+
                 const user = users.find(user => user.username === username && user.password === password);
 
                 if (user) {
