@@ -10,8 +10,6 @@
         .admin-panel {
             display: flex;
             height: 100vh;
-            background-color: #1a202c; /* Dark blue background */
-            color: #fff; /* White text color */
         }
 
         .sidebar {
@@ -45,16 +43,52 @@
         .nav-link:hover {
             background-color: #2d3748;
         }
+
+        /* Users Information styles */
+        .user-card {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .user-card p {
+            margin-bottom: 5px;
+        }
+
+        /* Form styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 0.25rem;
+            border: 1px solid #ddd;
+        }
     </style>
 </head>
-<body>
+<body class="bg-gray-100">
     <div class="admin-panel">
         <!-- Sidebar -->
         <div class="sidebar">
             <nav class="mt-10">
                 <a href="#usersInfoTab" class="nav-link">Users Info</a>
-                <a href="#settingsTab" class="nav-link">Settings</a>
-                <a href="#logsTab" class="nav-link">Logs</a>
                 <!-- Add more navigation links as needed -->
             </nav>
         </div>
@@ -65,37 +99,60 @@
             <div id="usersInfoTab" class="tab active">
                 <h2 class="text-2xl font-bold mb-4">Users Information</h2>
                 <!-- Users information content goes here -->
+                <div class="user-card">
+                    <h3>User 1</h3>
+                    <p>Email: user1@example.com</p>
+                    <p>Role: Administrator</p>
+                    <p>Rank: 5</p>
+                    <div class="form-group">
+                        <label for="roleSelect">Change Role:</label>
+                        <select id="roleSelect">
+                            <option value="admin">Administrator</option>
+                            <option value="moderator">Moderator</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rankInput">Change Rank:</label>
+                        <input type="text" id="rankInput" placeholder="Enter new rank">
+                    </div>
+                    <button onclick="updateUserInfo(1)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update</button>
+                </div>
+                <div class="user-card">
+                    <h3>User 2</h3>
+                    <p>Email: user2@example.com</p>
+                    <p>Role: Moderator</p>
+                    <p>Rank: 3</p>
+                    <div class="form-group">
+                        <label for="roleSelect2">Change Role:</label>
+                        <select id="roleSelect2">
+                            <option value="admin">Administrator</option>
+                            <option value="moderator">Moderator</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rankInput2">Change Rank:</label>
+                        <input type="text" id="rankInput2" placeholder="Enter new rank">
+                    </div>
+                    <button onclick="updateUserInfo(2)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update</button>
+                </div>
+                <!-- Add more user cards with user information as needed -->
             </div>
-            <div id="settingsTab" class="tab">
-                <h2 class="text-2xl font-bold mb-4">Settings</h2>
-                <!-- Settings content goes here -->
-            </div>
-            <div id="logsTab" class="tab">
-                <h2 class="text-2xl font-bold mb-4">Logs</h2>
-                <!-- Logs content goes here -->
-            </div>
-            <!-- Add more tab content sections as needed -->
         </div>
     </div>
 
     <script>
-        // Check authentication before accessing admin panel
-        const isAuthenticated = true; // Change this based on your authentication logic
-        if (!isAuthenticated) {
-            window.location.href = 'login.html'; // Redirect to login page if not authenticated
-        }
+        function updateUserInfo(userId) {
+            const roleSelect = document.getElementById(`roleSelect${userId}`);
+            const rankInput = document.getElementById(`rankInput${userId}`);
 
-        // Add event listeners to navigation links for tab functionality
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetTabId = e.target.getAttribute('href').substring(1);
-                document.querySelectorAll('.tab').forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                document.getElementById(targetTabId).classList.add('active');
-            });
-        });
+            const newRole = roleSelect.value;
+            const newRank = rankInput.value;
+
+            // Here you can implement code to update the user information in the login.json file
+            console.log(`Updating user ${userId} with new role: ${newRole} and new rank: ${newRank}`);
+        }
     </script>
 </body>
 </html>
