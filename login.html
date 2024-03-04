@@ -74,8 +74,11 @@
         // Check if username matches any user in the list
         const authenticatedUser = users.find(user => user.username === username);
 
+        console.log('Authenticated User:', authenticatedUser);
+
         // Redirect to admin page upon successful login
         if (authenticatedUser) {
+            console.log('Redirecting to admin.html');
             window.location.href = 'admin.html';
         } else {
             alert('Invalid username. Please try again.'); // Display error message
