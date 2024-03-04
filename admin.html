@@ -3,35 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Admin Panel</title>
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        @keyframes flash {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
+        /* Admin panel layout styles */
+        .admin-panel {
+            display: flex;
+            height: 100vh;
+            background-color: #1a202c; /* Dark blue background */
+            color: #fff; /* White text color */
         }
-        .animate-flash {
-            animation: flash 1s infinite;
+
+        .sidebar {
+            width: 250px;
+            background-color: #1a202c;
+            color: #fff;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .tab {
+            display: none;
+        }
+
+        .tab.active {
+            display: block;
+        }
+
+        /* Side navigation styles */
+        .nav-link {
+            padding: 10px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: #2d3748;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white font-sans flex justify-center items-center h-screen">
-    <div class="max-w-md w-full bg-gray-800 p-8 rounded-lg shadow-md text-center">
-        <h2 class="text-2xl font-semibold mb-4">Welcome Admin!</h2>
-        <p>This is the admin page.</p>
+<body>
+    <div class="admin-panel">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <nav class="mt-10">
+                <a href="#usersInfoTab" class="nav-link">Users Info</a>
+                <a href="#settingsTab" class="nav-link">Settings</a>
+                <a href="#logsTab" class="nav-link">Logs</a>
+                <!-- Add more navigation links as needed -->
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Tab Content -->
+            <div id="usersInfoTab" class="tab active">
+                <h2 class="text-2xl font-bold mb-4">Users Information</h2>
+                <!-- Users information content goes here -->
+            </div>
+            <div id="settingsTab" class="tab">
+                <h2 class="text-2xl font-bold mb-4">Settings</h2>
+                <!-- Settings content goes here -->
+            </div>
+            <div id="logsTab" class="tab">
+                <h2 class="text-2xl font-bold mb-4">Logs</h2>
+                <!-- Logs content goes here -->
+            </div>
+            <!-- Add more tab content sections as needed -->
+        </div>
     </div>
 
     <script>
-        // Simulating a logged-in user
-        const loggedIn = true; // You can replace this with your actual authentication logic
-
-        // If user is not logged in, redirect after 1 second
-        if (!loggedIn) {
-            setTimeout(() => {
-                window.location.href = 'login.html'; // Redirect to login page
-            }, 1000);
+        // Check authentication before accessing admin panel
+        const isAuthenticated = true; // Change this based on your authentication logic
+        if (!isAuthenticated) {
+            window.location.href = 'login.html'; // Redirect to login page if not authenticated
         }
+
+        // Add event listeners to navigation links for tab functionality
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetTabId = e.target.getAttribute('href').substring(1);
+                document.querySelectorAll('.tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.getElementById(targetTabId).classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
