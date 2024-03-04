@@ -12,8 +12,9 @@
         }
 
         /* Dark blue background */
-        .bg-blue-dark {
+        body {
             background-color: #1a202c; /* Dark blue background */
+            color: #fff; /* White text color */
         }
 
         .text-blue-dark {
@@ -23,38 +24,30 @@
         .border-blue-dark {
             border-color: #4299e1; /* Dark blue border */
         }
-
-        .bg-blue-dark:hover {
-            background-color: #2d3748; /* Dark blue background on hover */
-        }
-
-        .text-blue-dark:hover {
-            color: #90cdf4; /* Light blue text on hover */
-        }
     </style>
 </head>
-<body class="bg-white dark:bg-blue-dark text-gray-900 dark:text-white">
+<body>
     <div class="min-h-screen flex justify-center items-center">
         <div class="w-full max-w-sm">
-            <form class="bg-white dark:bg-gray-900 shadow-md rounded px-8 pt-6 pb-8 mb-4 login-box" id="loginForm">
+            <form class="bg-blue-900 dark:bg-gray-900 shadow-md rounded px-8 pt-6 pb-8 mb-4 login-box" id="loginForm">
                 <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
                 <div class="mb-4">
-                    <label class="block text-gray-700 dark:text-gray-400 text-sm font-bold mb-2" for="username">
+                    <label class="block text-gray-400 text-sm font-bold mb-2" for="username">
                         Username
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-dark" id="username" type="text" placeholder="Username">
                 </div>
                 <div class="mb-6">
-                    <label class="block text-gray-700 dark:text-gray-400 text-sm font-bold mb-2" for="password">
+                    <label class="block text-gray-400 text-sm font-bold mb-2" for="password">
                         Password
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline border-blue-dark" id="password" type="password" placeholder="Password">
                 </div>
                 <div class="flex items-center justify-between">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-blue-dark" type="submit" id="loginButton">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" id="loginButton">
                         Sign In
                     </button>
-                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 text-blue-dark" href="#">
+                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
                         Forgot Password?
                     </a>
                 </div>
