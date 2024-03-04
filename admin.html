@@ -161,6 +161,7 @@
                 users.forEach(user => {
                     const userCard = document.createElement('div');
                     userCard.classList.add('user-card');
+                    userCard.id = `user-${user.id}`;
 
                     const username = document.createElement('h3');
                     username.textContent = user.username;
