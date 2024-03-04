@@ -48,11 +48,12 @@
         const username = document.getElementById('loginUsername').value;
         const password = document.getElementById('loginPassword').value;
 
-        // Simulating successful login (redirect to admin.html)
+        // Check if username and password match
         if (username === 'admin' && password === 'password') {
+            // Redirect to admin page upon successful login
             window.location.href = 'admin.html';
         } else {
-            alert('Invalid username or password. Please try again.'); // You might want to display this differently
+            alert('Invalid username or password. Please try again.'); // Display error message
         }
     }
 </script>
