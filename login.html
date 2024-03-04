@@ -5,7 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles for login boxes */
+        .login-box {
+            border-radius: 0.5rem;
+        }
+
+        /* Dark blue theme */
+        .bg-blue-dark {
+            background-color: #1a202c; /* Dark blue background */
+        }
+
+        .text-blue-dark {
+            color: #4299e1; /* Dark blue text */
+        }
+
+        .border-blue-dark {
+            border-color: #4299e1; /* Dark blue border */
+        }
+
+        .bg-blue-dark:hover {
+            background-color: #2d3748; /* Dark blue background on hover */
+        }
+
+        .text-blue-dark:hover {
+            color: #90cdf4; /* Light blue text on hover */
+        }
+    </style>
 </head>
 <body class="bg-white dark:bg-blue-dark text-gray-900 dark:text-white">
     <div class="min-h-screen flex justify-center items-center">
