@@ -19,12 +19,18 @@
             background-color: #2d3748;
             border-color: #2d3748;
         }
+
+        /* Center and increase size of login box */
+        .login-box {
+            width: 400px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body class="bg-gray-800 text-white">
 
 <div class="container mx-auto flex justify-center items-center h-screen">
-    <div class="bg-gray-900 p-8 rounded-md shadow-md">
+    <div class="login-box bg-gray-900 p-8 rounded-md shadow-md">
         <h1 class="text-2xl font-bold mb-4 text-center">Login</h1>
         <form onsubmit="login(event)" class="space-y-4">
             <div>
@@ -65,14 +71,14 @@
         const username = document.getElementById('loginUsername').value.trim();
         const password = document.getElementById('loginPassword').value.trim();
 
-        // Check if username and password match any user in the list
-        const authenticatedUser = users.find(user => user.username === username && user.password === password);
+        // Check if username matches any user in the list
+        const authenticatedUser = users.find(user => user.username === username);
 
         // Redirect to admin page upon successful login
         if (authenticatedUser) {
             window.location.href = 'admin.html';
         } else {
-            alert('Invalid username or password. Please try again.'); // Display error message
+            alert('Invalid username. Please try again.'); // Display error message
         }
     }
 </script>
