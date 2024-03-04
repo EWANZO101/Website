@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional custom styling here */
+    </style>
+</head>
+<body class="bg-gray-800 text-white">
+
+<div class="container mx-auto">
+    <!-- Signup Form -->
+    <div>
+        <h1 class="text-2xl font-bold mb-4">Signup</h1>
+        <form onsubmit="signup(event)">
+            <div class="mb-4">
+                <label for="signupUsername" class="block">Username:</label>
+                <input type="text" id="signupUsername" class="form-input">
+            </div>
+            <div class="mb-4">
+                <label for="signupPassword" class="block">Password:</label>
+                <input type="password" id="signupPassword" class="form-input">
+            </div>
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Signup</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function signup(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        // Perform signup functionality (dummy check)
+        // Here you would typically send data to the server to create a new user
+        
+        // Simulating successful signup (redirect to admin.html)
+        window.location.href = 'admin.html';
+    }
+</script>
+
+</body>
+</html>

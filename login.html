@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional custom styling here */
+        input[type="text"],
+        input[type="password"] {
+            background-color: #4a5568;
+            border-color: #4a5568;
+            color: white;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            background-color: #2d3748;
+            border-color: #2d3748;
+        }
+
+        /* Center and increase size of login box */
+        .login-box {
+            width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-800 text-white">
+
+<div class="container mx-auto flex justify-center items-center h-screen">
+    <div class="login-box bg-gray-900 p-8 rounded-md shadow-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">Login</h1>
+        <form onsubmit="login(event)" class="space-y-4">
+            <div>
+                <label for="loginUsername" class="block">Username:</label>
+                <input type="text" id="loginUsername" class="form-input w-full" required>
+            </div>
+            <div>
+                <label for="loginPassword" class="block">Password:</label>
+                <input type="password" id="loginPassword" class="form-input w-full" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full">Login</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Function to fetch user data from admin.html
+    function getUserData() {
+        // Extract user data from admin.html
+        const userData = [];
+        const userList = document.getElementById('userList');
+        const userItems = userList.getElementsByTagName('li');
+        for (let i = 0; i < userItems.length; i++) {
+            const username = userItems[i].textContent.trim();
+            userData.push({ username: username });
+        }
+        return userData;
+    }
+
+    // Function to authenticate user
+    function login(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        // Get user data from admin.html
+        const users = getUserData();
+
+        // Get entered username and password
+        const username = document.getElementById('loginUsername').value.trim();
+        const password = document.getElementById('loginPassword').value.trim();
+
+        // Check if username matches any user in the list
+        const authenticatedUser = users.find(user => user.username === username);
+
+        console.log('Authenticated User:', authenticatedUser);
+
+        // Redirect to admin page upon successful login
+        if (authenticatedUser) {
+            console.log('Redirecting to admin.html');
+            window.location.href = 'admin.html';
+        } else {
+            alert('Invalid username. Please try again.'); // Display error message
+        }
+    }
+</script>
+
+</body>
+</html>
